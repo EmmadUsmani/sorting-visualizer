@@ -1,11 +1,17 @@
 import React from 'react';
-import './Canvas.css'
+import ItemList from '../ItemList';
+import '../css/Canvas.css'
 
 class Canvas extends React.Component {
+    state = {
+        items: null
+    }
+
     canvasRef = React.createRef();
 
     componentDidMount() {
         window.addEventListener("resize", this.resizeCanvas);
+        this.setState({items: new ItemList(100)}, this.drawLines);
     }
 
     componentWillUnmount() {
@@ -18,9 +24,13 @@ class Canvas extends React.Component {
         // this.draw();
     }
 
-    draw() {
+    drawLines() {
         const ctx = this.canvasRef.current.getContext('2d');
-        ctx.fillRect(100, 100, 100, 100);
+        ctx.fillStyle = "#e4a5e6";
+        this.state.items.forEach((line) => {
+            console.log("test");
+            ctx.fillRect(line.x, line.y, line.width, line.height);
+        });
     }
 
     render() {
