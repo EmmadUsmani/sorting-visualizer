@@ -12,7 +12,10 @@
     width: 100%;
 }
 
-.buttons {
+.actions {
     margin-top: -15px;
 }
 
+.buttons {
+    margin: auto;
+}
