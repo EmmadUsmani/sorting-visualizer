@@ -9,7 +9,8 @@ class ItemList extends Array {
     generateList(numItems) {
         const width = window.innerWidth / numItems;
         for (let i = 0; i < numItems; i++) {
-            this.push(new Item(i, i, i * width, window.innerHeight - i, width, i));
+            const height = window.innerHeight / numItems * (i + 1);
+            this.push(new Item(i, i, i * width, window.innerHeight - height, width, height, numItems));
         }
     }
 }

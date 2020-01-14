@@ -16,7 +16,7 @@ class App extends React.Component {
     algorithms: ["Merge Sort", "Quick Sort", "Heap Sort", "Insertion Sort", "Bubble Sort"],
     selectedAlgo: "Merge Sort",
     speed: 100,
-    items: 100
+    numItems: 100
   }
 
   setAlgo = (e) => {
@@ -27,8 +27,8 @@ class App extends React.Component {
     this.setState({speed: value});
   }
 
-  setItems = (e, value) => {
-    this.setState({items: value});
+  setNumItems = (e, value) => {
+    this.setState({numItems: value});
   }
 
   render() {
@@ -45,7 +45,7 @@ class App extends React.Component {
             <Typography>Speed</Typography>
             <Slider value={this.state.speed} onChange={this.setSpeed} min={1} valueLabelDisplay="auto"/>
             <Typography>Items</Typography>
-            <Slider value={this.state.items} onChange={this.setItems} min={5} valueLabelDisplay="auto"/>
+            <Slider value={this.state.numItems} onChange={this.setNumItems} min={5} valueLabelDisplay="auto"/>
           </CardContent>
           <CardActions className="actions">
             <div className="buttons">
@@ -54,7 +54,10 @@ class App extends React.Component {
             </div>
           </CardActions>
         </Card>
-        <Canvas/>
+        <Canvas 
+          selectedAlgo={this.state.selectedAlgo}
+          speed={this.state.speed}
+          numItems={this.state.numItems}/>
         </>
     );
   }

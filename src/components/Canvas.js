@@ -11,7 +11,7 @@ class Canvas extends React.Component {
 
     componentDidMount() {
         window.addEventListener("resize", this.resizeCanvas);
-        this.setState({items: new ItemList(100)}, this.drawLines);
+        this.setState({items: new ItemList(this.props.numItems)}, this.drawLines);
     }
 
     componentWillUnmount() {
@@ -21,15 +21,15 @@ class Canvas extends React.Component {
     resizeCanvas = () => {
         this.canvasRef.current.width = window.innerWidth;
         this.canvasRef.current.height = window.innerHeight;
-        // this.draw();
+        this.state.items.forEach((item) => {item.recalculate(item.index)} );
+        this.drawLines();
     }
 
     drawLines() {
         const ctx = this.canvasRef.current.getContext('2d');
-        ctx.fillStyle = "#e4a5e6";
-        this.state.items.forEach((line) => {
-            console.log("test");
-            ctx.fillRect(line.x, line.y, line.width, line.height);
+        ctx.fillStyle = "#88a8db";
+        this.state.items.forEach((item) => {
+            ctx.fillRect(item.x, item.y, item.width, item.height);
         });
     }
 
