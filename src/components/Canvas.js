@@ -5,7 +5,7 @@ class Canvas extends React.Component {
     canvasRef = React.createRef();
 
     componentDidMount() {
-        window.addEventListener("resize", this.resizeCanvas)
+        window.addEventListener("resize", this.resizeCanvas);
     }
 
     componentWillUnmount() {
