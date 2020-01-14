@@ -1,9 +1,18 @@
 .card {
-    max-width: 300px;
+    width: 250px;
     position: fixed;
     z-index: 1;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 .dropdown {
+    margin-top: 5px !important;
+    margin-bottom: 15px !important;
     width: 100%;
 }
+
+.buttons {
+    margin-top: -15px;
+}
+

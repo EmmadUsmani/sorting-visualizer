@@ -10,11 +10,10 @@ import Input from '@material-ui/core/Input';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
-
+import Slider from '@material-ui/core/Slider';
 import './App.css'
 
 class App extends React.Component {
-
   render() {
     return (
         <>
@@ -27,7 +26,15 @@ class App extends React.Component {
                   <MenuItem value="Quick Sort">Quick Sort</MenuItem>
               </Select>
             </FormControl>
+            <Typography>Speed</Typography>
+            <Slider value={0} type="speed" valueLabelDisplay="auto"/>
+            <Typography>Elements</Typography>
+            <Slider value={0} type="elements" valueLabelDisplay="auto"/>
           </CardContent>
+          <CardActions className="buttons">
+            <Button color="primary" text="sort">Sort</Button>
+            <Button color="secondary" text="shuffle">Shuffle</Button>
+          </CardActions>
         </Card>
         <Canvas/>
         </>

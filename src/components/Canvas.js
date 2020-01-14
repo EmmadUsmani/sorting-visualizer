@@ -15,7 +15,7 @@ class Canvas extends React.Component {
     resizeCanvas = () => {
         this.canvasRef.current.width = window.innerWidth;
         this.canvasRef.current.height = window.innerHeight;
-        this.draw();
+        // this.draw();
     }
 
     draw() {
