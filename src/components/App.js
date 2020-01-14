@@ -16,8 +16,11 @@ class App extends React.Component {
     algorithms: ["Merge Sort", "Quick Sort", "Heap Sort", "Insertion Sort", "Bubble Sort"],
     selectedAlgo: "Merge Sort",
     speed: 100,
-    numItems: 100
+    numItems: 100,
+    isSorting: false
   }
+
+  shuffleRef = React.createRef();
 
   setAlgo = (e) => {
     this.setState({selectedAlgo: e.target.value});
@@ -49,15 +52,16 @@ class App extends React.Component {
           </CardContent>
           <CardActions className="actions">
             <div className="buttons">
-              <Button color="primary" text="sort">Sort</Button>
-              <Button color="primary" text="shuffle">Shuffle</Button>
+              <Button color="primary">Sort</Button>
+              <Button color="primary" ref={this.shuffleRef}>Shuffle</Button>
             </div>
           </CardActions>
         </Card>
         <Canvas 
           selectedAlgo={this.state.selectedAlgo}
           speed={this.state.speed}
-          numItems={this.state.numItems}/>
+          numItems={this.state.numItems}
+          shuffleRef={this.shuffleRef}/>
         </>
     );
   }
