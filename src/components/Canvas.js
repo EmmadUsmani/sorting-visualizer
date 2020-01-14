@@ -12,6 +12,7 @@ class Canvas extends React.Component {
     componentDidMount() {
         window.addEventListener("resize", this.resizeCanvas);
         this.props.shuffleRef.current.onclick = this.shuffleItems;
+        this.props.sortRef.current.onclick = this.props.toggleSorting;
         this.setState({items: new ItemList(this.props.numItems)}, this.drawLines);
     }
 
@@ -22,7 +23,6 @@ class Canvas extends React.Component {
 
     componentWillUnmount() {
         window.removeEventListener("resize", this.resizeCanvas);
-        this.props.shuffleRef.current.onclick = () => {console.log("shuffling")};
     }
 
     resizeCanvas = () => {

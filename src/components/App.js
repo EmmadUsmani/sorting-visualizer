@@ -21,6 +21,7 @@ class App extends React.Component {
   }
 
   shuffleRef = React.createRef();
+  sortRef = React.createRef();
 
   setAlgo = (e) => {
     this.setState({selectedAlgo: e.target.value});
@@ -34,26 +35,33 @@ class App extends React.Component {
     this.setState({numItems: value});
   }
 
+  toggleSorting = () => {
+    this.setState({isSorting: !this.state.isSorting});
+  }
+
   render() {
     return (
         <>
         <Card raised={true} className="card">
           <CardContent>
             <Typography>Algorithm</Typography>
-            <FormControl className="dropdown">
+            <FormControl className="dropdown" disabled={this.state.isSorting}>
               <Select value={this.state.selectedAlgo} onChange={this.setAlgo}>
                   {this.state.algorithms.map((a) => <MenuItem value={a} key={a}>{a}</MenuItem>)}
               </Select>
             </FormControl>
             <Typography>Speed</Typography>
-            <Slider value={this.state.speed} onChange={this.setSpeed} min={1} valueLabelDisplay="auto"/>
+            <Slider value={this.state.speed} onChange={this.setSpeed} disabled={this.state.isSorting} min={1} valueLabelDisplay="auto"/>
             <Typography>Items</Typography>
-            <Slider value={this.state.numItems} onChange={this.setNumItems} min={5} valueLabelDisplay="auto"/>
+            <Slider value={this.state.numItems} onChange={this.setNumItems} disabled={this.state.isSorting} min={5} valueLabelDisplay="auto"/>
           </CardContent>
           <CardActions className="actions">
             <div className="buttons">
-              <Button color="primary">Sort</Button>
-              <Button color="primary" ref={this.shuffleRef}>Shuffle</Button>
+              { this.state.isSorting
+                ? <Button color="secondary" ref={this.sortRef}>Stop</Button>
+                : <Button color="primary" ref={this.sortRef}>Sort</Button>
+              }
+              <Button color="primary" ref={this.shuffleRef} disabled={this.state.isSorting}>Shuffle</Button>
             </div>
           </CardActions>
         </Card>
@@ -61,7 +69,9 @@ class App extends React.Component {
           selectedAlgo={this.state.selectedAlgo}
           speed={this.state.speed}
           numItems={this.state.numItems}
-          shuffleRef={this.shuffleRef}/>
+          shuffleRef={this.shuffleRef}
+          sortRef={this.sortRef}
+          toggleSorting={this.toggleSorting}/>
         </>
     );
   }
