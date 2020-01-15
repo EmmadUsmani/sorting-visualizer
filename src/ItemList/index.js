@@ -27,6 +27,7 @@ class ItemList extends Array {
         }
         for (i = 0; i < this.length; i++) {
             this[i].recalculate(i);
+            this[i].unmark();
         }
     }
 

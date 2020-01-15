@@ -8,6 +8,7 @@ class Item {
         this.height = height;
         this.numItems = numItems;
         this.color = this.calculateColor();
+        this.marked = false;
     }
 
     recalculate(index) {
@@ -24,6 +25,15 @@ class Item {
         const degPerItem = 360 / this.numItems;
         return `hsl(${degPerItem * this.value}, 60%, 50%)`;
     }
+
+    mark() {
+        this.marked = true;
+    }
+
+    unmark() {
+        this.marked = false;
+    }
+    
 }
 
 export default Item;

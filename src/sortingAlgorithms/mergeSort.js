@@ -14,11 +14,22 @@ function* mergeSortHelper(list, l, r) {
 
 function* merge(list, start, mid, end) {
     let start2 = mid + 1;
-    // If merge is already sorted, yield and end alg
-    if (list[mid].value <= list[start2].value) {
-        yield;
-    } else {
+    // Marking comparison
+    list[mid].mark();
+    list[start2].mark();
+    console.log(`comparing ${mid} and ${start2}`);
+    yield;
+    list[mid].unmark();
+    list[start2].unmark();
+    // If merge is already sorted, end alg
+    if (list[mid].value > list[start2].value) {
         while (start <= mid && start2 <= end) {
+            // Marking comparison
+            list[start].mark();
+            list[start2].mark();
+            yield;
+            list[start].unmark();
+            list[start2].unmark();
             // If element in first list is in correct spot
             if (list[start].value <= list[start2].value) {
                 start++;
@@ -33,11 +44,11 @@ function* merge(list, start, mid, end) {
                 }
                 list[start] = item;
                 list[start].recalculate(start);
+
                 // Increment pointers
                 start++;
                 mid++;
                 start2++;
-                yield;
             }
         }
     }

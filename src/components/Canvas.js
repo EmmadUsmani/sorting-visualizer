@@ -56,10 +56,16 @@ class Canvas extends React.Component {
     drawLines() {
         const context = this.canvasRef.current.getContext('2d');
         context.clearRect(0, 0, window.innerWidth, window.innerHeight);
-        context.fillStyle = "#88a8db";
         this.state.items.forEach((item) => {
-            context.fillStyle = item.color;
-            context.fillRect(item.x, item.y, item.width, item.height);
+            if(item.marked) {
+                context.fillStyle = 'white';
+                context.strokeStyle = 'black';
+                context.fillRect(item.x, item.y, item.width, item.height);
+                context.strokeRect(item.x, item.y, item.width, item.height);
+            } else {
+                context.fillStyle = item.color;
+                context.fillRect(item.x, item.y, item.width, item.height);
+            }
         });
     }
 
