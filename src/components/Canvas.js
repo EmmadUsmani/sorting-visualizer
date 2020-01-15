@@ -40,6 +40,7 @@ class Canvas extends React.Component {
     sortItems = () => {
         this.props.toggleSorting();
         this.state.items.toggleSorting();
+        this.state.items.unmarkAll();
         this.sortHelper(this.state.items.sorter(this.props.selectedAlgo));
     }
 

@@ -6,6 +6,7 @@ class ItemList extends Array {
         super();
         this.generateList(input);
         this.isSorting = false;
+        this.marked = {};
     }
 
     generateList(numItems) {
@@ -14,6 +15,23 @@ class ItemList extends Array {
             const height = window.innerHeight / numItems * (i + 1);
             this.push(new Item(i, i, i * width, window.innerHeight - height, width, height, numItems));
         }
+    }
+
+    mark(index) {
+        this[index].mark();
+        this.marked[index] = this[index];
+    }
+
+    unmark(index) {
+        this[index].unmark();
+        delete this.marked[index];
+    }
+
+    unmarkAll() {
+        for (const index in this.marked) {
+            this[index].unmark();
+        }
+        this.marked = {};
     }
 
     // modern Fisher-Yates algorithm, adapted from https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array

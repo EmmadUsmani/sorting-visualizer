@@ -23,7 +23,7 @@ class Item {
 
     calculateColor() {
         const degPerItem = 360 / this.numItems;
-        return `hsl(${degPerItem * this.value}, 60%, 50%)`;
+        return `hsl(${degPerItem * this.value}, 65%, 55%)`;
     }
 
     mark() {
