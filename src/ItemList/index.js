@@ -1,4 +1,5 @@
 import Item from './Item'
+import mergeSort from '../sortingAlgorithms/mergeSort';
 
 class ItemList extends Array {
     constructor(input) {
@@ -31,11 +32,9 @@ class ItemList extends Array {
 
     *sorter(algo) {
         if(algo === "Merge Sort") {
-            yield 1;
-            yield 2;
-            yield 3;
-            this.toggleSorting();
+            yield* mergeSort(this);
         }
+        this.toggleSorting();
     }
 
     toggleSorting() {

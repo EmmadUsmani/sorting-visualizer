@@ -45,9 +45,9 @@ class Canvas extends React.Component {
 
     sortHelper = (sorter) => {
         if(this.state.items.isSorting) {
-            console.log(sorter.next());
+            sorter.next();
             this.drawLines();
-            setTimeout(this.sortHelper, 1000, sorter);
+            setTimeout(this.sortHelper, 1000 - (this.props.speed / 10 * 100), sorter);
         } else {
             this.props.toggleSorting();
         }

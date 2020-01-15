@@ -51,7 +51,7 @@ class App extends React.Component {
               </Select>
             </FormControl>
             <Typography>Speed</Typography>
-            <Slider value={this.state.speed} onChange={this.setSpeed} disabled={this.state.isSorting} min={1} valueLabelDisplay="auto"/>
+            <Slider value={this.state.speed} onChange={this.setSpeed} min={1} valueLabelDisplay="auto"/>
             <Typography>Items</Typography>
             <Slider value={this.state.numItems} onChange={this.setNumItems} disabled={this.state.isSorting} min={5} valueLabelDisplay="auto"/>
           </CardContent>
