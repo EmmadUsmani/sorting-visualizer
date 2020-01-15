@@ -7,6 +7,7 @@ class Item {
         this.width = width;
         this.height = height;
         this.numItems = numItems;
+        this.color = this.calculateColor();
     }
 
     recalculate(index) {
@@ -17,6 +18,11 @@ class Item {
         this.y = window.innerHeight - height;
         this.width = width;
         this.height = height;
+    }
+
+    calculateColor() {
+        const degPerItem = 360 / this.numItems;
+        return `hsl(${degPerItem * this.value}, 60%, 50%)`;
     }
 }
 

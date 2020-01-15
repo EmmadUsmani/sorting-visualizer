@@ -58,6 +58,7 @@ class Canvas extends React.Component {
         context.clearRect(0, 0, window.innerWidth, window.innerHeight);
         context.fillStyle = "#88a8db";
         this.state.items.forEach((item) => {
+            context.fillStyle = item.color;
             context.fillRect(item.x, item.y, item.width, item.height);
         });
     }
