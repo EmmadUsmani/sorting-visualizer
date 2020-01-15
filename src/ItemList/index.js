@@ -4,6 +4,7 @@ class ItemList extends Array {
     constructor(input) {
         super();
         this.generateList(input);
+        this.isSorting = false;
     }
 
     generateList(numItems) {
@@ -26,6 +27,19 @@ class ItemList extends Array {
         for (i = 0; i < this.length; i++) {
             this[i].recalculate(i);
         }
+    }
+
+    *sorter(algo) {
+        if(algo === "Merge Sort") {
+            yield 1;
+            yield 2;
+            yield 3;
+            this.toggleSorting();
+        }
+    }
+
+    toggleSorting() {
+        this.isSorting = !this.isSorting;
     }
 }
 

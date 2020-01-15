@@ -12,7 +12,7 @@ class Canvas extends React.Component {
     componentDidMount() {
         window.addEventListener("resize", this.resizeCanvas);
         this.props.shuffleRef.current.onclick = this.shuffleItems;
-        this.props.sortRef.current.onclick = this.props.toggleSorting;
+        this.props.sortRef.current.onclick = this.sortItems;
         this.setState({items: new ItemList(this.props.numItems)}, this.drawLines);
     }
 
@@ -35,6 +35,22 @@ class Canvas extends React.Component {
     shuffleItems = () => {
         this.state.items.shuffle();
         this.drawLines();
+    }
+
+    sortItems = () => {
+        this.props.toggleSorting();
+        this.state.items.toggleSorting();
+        this.sortHelper(this.state.items.sorter(this.props.selectedAlgo));
+    }
+
+    sortHelper = (sorter) => {
+        if(this.state.items.isSorting) {
+            console.log(sorter.next());
+            this.drawLines();
+            setTimeout(this.sortHelper, 1000, sorter);
+        } else {
+            this.props.toggleSorting();
+        }
     }
 
     drawLines() {
