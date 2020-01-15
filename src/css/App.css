@@ -4,7 +4,14 @@
     z-index: 1;
     margin-top: 10px;
     margin-left: 10px;
+    opacity: 0.75;
+    transition: opacity 0.4s !important;
 }
+
+.card:hover {
+    opacity: 1;
+}
+
 
 .dropdown {
     margin-top: 5px !important;
