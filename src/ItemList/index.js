@@ -1,5 +1,6 @@
 import Item from './Item'
 import mergeSort from '../sortingAlgorithms/mergeSort';
+import insertionSort from '../sortingAlgorithms/insertionSort';
 
 class ItemList extends Array {
     constructor(input) {
@@ -52,6 +53,8 @@ class ItemList extends Array {
     *sorter(algo) {
         if(algo === "Merge Sort") {
             yield* mergeSort(this);
+        } else if(algo === "Insertion Sort") {
+            yield* insertionSort(this);
         }
         this.toggleSorting();
     }
