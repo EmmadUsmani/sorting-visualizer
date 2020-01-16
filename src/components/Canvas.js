@@ -13,12 +13,12 @@ class Canvas extends React.Component {
         window.addEventListener("resize", this.resizeCanvas);
         this.props.shuffleRef.current.onclick = this.shuffleItems;
         this.props.sortRef.current.onclick = this.sortItems;
-        this.setState({items: new ItemList(this.props.numItems)}, this.drawLines);
+        this.setState({items: new ItemList(this.props.numItems)}, this.drawItems);
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.numItems !== this.props.numItems)
-            this.setState({items: new ItemList(this.props.numItems)}, this.drawLines);
+            this.setState({items: new ItemList(this.props.numItems)}, this.drawItems);
     }
 
     componentWillUnmount() {
@@ -29,12 +29,12 @@ class Canvas extends React.Component {
         this.canvasRef.current.width = window.innerWidth;
         this.canvasRef.current.height = window.innerHeight;
         this.state.items.forEach((item) => {item.recalculate(item.index)});
-        this.drawLines();
+        this.drawItems();
     }
 
     shuffleItems = () => {
         this.state.items.shuffle();
-        this.drawLines();
+        this.drawItems();
     }
 
     sortItems = () => {
@@ -49,14 +49,14 @@ class Canvas extends React.Component {
     sortHelper = (sorter) => {
         if(this.state.items.isSorting) {
             sorter.next();
-            this.drawLines();
+            this.drawItems();
             setTimeout(this.sortHelper, 1000 / this.props.speed, sorter);
         } else {
             this.props.toggleSorting();
         }
     }
 
-    drawLines() {
+    drawItems() {
         const context = this.canvasRef.current.getContext('2d');
         context.clearRect(0, 0, window.innerWidth, window.innerHeight);
         this.state.items.forEach((item) => {
