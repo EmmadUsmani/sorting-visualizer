@@ -36,7 +36,7 @@ function* partition(list, low, high, p) {
     // Swap pivot after smaller elems
     let temp = list[i + 1];
     list[i + 1] = list[high];
-    list[i + 1].recalculate(i);
+    list[i + 1].recalculate(i + 1);
     list[high] = temp;
     list[high].recalculate(high);
     // Setting pivot index
