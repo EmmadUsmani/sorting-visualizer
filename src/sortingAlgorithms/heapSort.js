@@ -1,3 +1,4 @@
+// adapted from https://www.geeksforgeeks.org/heap-sort/
 function* heapSort(list) {
     let n = list.length;
     // Max-heapify list
