@@ -53,7 +53,7 @@ class App extends React.Component {
             <Typography>Speed</Typography>
             <Slider value={this.state.speed} onChange={this.setSpeed} min={1} valueLabelDisplay="auto"/>
             <Typography>Items</Typography>
-            <Slider value={this.state.numItems} onChange={this.setNumItems} disabled={this.state.isSorting} min={5} valueLabelDisplay="auto"/>
+            <Slider value={this.state.numItems} onChange={this.setNumItems} disabled={this.state.isSorting} min={5} max={200} valueLabelDisplay="auto"/>
           </CardContent>
           <CardActions className="actions">
             <div className="buttons">

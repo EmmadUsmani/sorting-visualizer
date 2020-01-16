@@ -2,7 +2,7 @@ import ItemList from '../ItemList';
 
 function testSort(algo) {
     return () => {
-        for (let i = 1; i <= 100; i++) {
+        for (let i = 1; i <= 200; i++) {
             let sorted = new ItemList(i);
             let toSort = new ItemList(i);
             toSort.shuffle();
