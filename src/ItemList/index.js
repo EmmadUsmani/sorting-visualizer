@@ -48,7 +48,7 @@ class ItemList extends Array {
             this[j] = temp;
         }
         for (i = 0; i < this.length; i++) {
-            this[i].recalculate(i);
+            this[i].update(i);
             this[i].unmark();
         }
     }

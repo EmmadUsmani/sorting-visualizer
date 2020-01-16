@@ -11,7 +11,7 @@ class Item {
         this.marked = false;
     }
 
-    recalculate(index) {
+    update(index) {
         const width = window.innerWidth / this.numItems;
         const height = window.innerHeight / this.numItems * (this.value+1);
         this.index = index;

@@ -28,17 +28,17 @@ function* partition(list, low, high, p) {
             // Swap list[j] to end of the smaller elems
             let temp = list[i];
             list[i] = list[j];
-            list[i].recalculate(i);
+            list[i].update(i);
             list[j] = temp;
-            list[j].recalculate(j);
+            list[j].update(j);
         }
     }
     // Swap pivot after smaller elems
     let temp = list[i + 1];
     list[i + 1] = list[high];
-    list[i + 1].recalculate(i + 1);
+    list[i + 1].update(i + 1);
     list[high] = temp;
-    list[high].recalculate(high);
+    list[high].update(high);
     // Setting pivot index
     p.value = i + 1;
 } 

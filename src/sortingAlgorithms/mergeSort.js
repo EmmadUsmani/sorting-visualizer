@@ -38,11 +38,11 @@ function* merge(list, start, mid, end) {
                 let index = start2;
                 while(index !== start) {
                     list[index] = list[index - 1];
-                    list[index].recalculate(index);
+                    list[index].update(index);
                     index--;
                 }
                 list[start] = item;
-                list[start].recalculate(start);
+                list[start].update(start);
 
                 // Increment pointers
                 start++;

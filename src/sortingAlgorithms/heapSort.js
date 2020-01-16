@@ -8,9 +8,9 @@ function* heapSort(list) {
     for (let i = n - 1; i >= 0; i--) {
         let temp = list[0];
         list[0] = list[i];
-        list[0].recalculate(0);
+        list[0].update(0);
         list[i] = temp;
-        list[i].recalculate(i);
+        list[i].update(i);
         // Heapify unsorted portion
         yield* heapify(list, i, 0);
     }
@@ -46,9 +46,9 @@ function* heapify(list, n, i) {
     if (largest !== i) {
         let temp = list[i];
         list[i] = list[largest];
-        list[i].recalculate(i);
+        list[i].update(i);
         list[largest] = temp;
-        list[largest].recalculate(largest);
+        list[largest].update(largest);
         // Heapify affected subtree
         yield* heapify(list, n, largest);
     }

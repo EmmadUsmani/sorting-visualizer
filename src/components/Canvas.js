@@ -28,7 +28,7 @@ class Canvas extends React.Component {
     resizeCanvas = () => {
         this.canvasRef.current.width = window.innerWidth;
         this.canvasRef.current.height = window.innerHeight;
-        this.state.items.forEach((item) => {item.recalculate(item.index)});
+        this.state.items.forEach((item) => {item.update(item.index)});
         this.drawItems();
     }
 

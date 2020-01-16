@@ -15,9 +15,9 @@ function* selectionSort(list) {
         }
         // Swap min into sorted portion
         list[min.index] = list[i];
-        list[min.index].recalculate(min.index);
+        list[min.index].update(min.index);
         list[i] = min;
-        min.recalculate(i);
+        min.update(i);
     }
 }
 

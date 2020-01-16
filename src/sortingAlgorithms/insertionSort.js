@@ -13,8 +13,8 @@ function* insertionSort(list) {
         while(j > 0 && item.value < list[j - 1].value) {
             list[j] = list[j-1];
             list[j - 1] = item;
-            list[j].recalculate(j);
-            list[j - 1].recalculate(j - 1);
+            list[j].update(j);
+            list[j - 1].update(j - 1);
             j--;
             if(j > 0) {
                 // Marking comparison
