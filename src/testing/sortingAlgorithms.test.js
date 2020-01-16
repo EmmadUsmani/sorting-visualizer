@@ -7,3 +7,7 @@ describe('mergeSort', () => {
 describe('insertionSort', () => {
     it('should correctly sort ItemLists of size 1 to 100', testSort('Insertion Sort'));
 });
+
+describe('selectionSort', () => {
+    it('should correctly sort ItemLists of size 1 to 100', testSort('Selection Sort'));
+});

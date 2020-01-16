@@ -1,6 +1,7 @@
 import Item from './Item'
 import mergeSort from '../sortingAlgorithms/mergeSort';
 import insertionSort from '../sortingAlgorithms/insertionSort';
+import selectionSort from '../sortingAlgorithms/selectionSort';
 
 class ItemList extends Array {
     constructor(input) {
@@ -51,11 +52,19 @@ class ItemList extends Array {
     }
 
     *sorter(algo) {
-        if(algo === "Merge Sort") {
-            yield* mergeSort(this);
-        } else if(algo === "Insertion Sort") {
-            yield* insertionSort(this);
-        }
+        switch (algo) {
+            case 'Merge Sort':
+                yield* mergeSort(this);
+                break;
+            case 'Insertion Sort':
+                yield* insertionSort(this);
+                break;
+            case 'Selection Sort':
+                yield* selectionSort(this);
+                break;
+            default:
+                console.error(`${algo} is not a valid sorting algorithm.`);
+        }        
         this.toggleSorting();
     }
 
