@@ -3,6 +3,7 @@ import mergeSort from '../sortingAlgorithms/mergeSort';
 import insertionSort from '../sortingAlgorithms/insertionSort';
 import selectionSort from '../sortingAlgorithms/selectionSort';
 import heapSort from '../sortingAlgorithms/heapSort';
+import quickSort from '../sortingAlgorithms/quickSort';
 
 class ItemList extends Array {
     constructor(input) {
@@ -65,6 +66,9 @@ class ItemList extends Array {
                 break;
             case 'Heap Sort':
                 yield* heapSort(this);
+                break;
+            case 'Quick Sort':
+                yield* quickSort(this);
                 break;
             default:
                 console.error(`${algo} is not a valid sorting algorithm.`);

@@ -1,8 +1,8 @@
-// adapted from https://www.geeksforgeeks.org/heap-sort/
+// Adapted from https://www.geeksforgeeks.org/heap-sort/
 function* heapSort(list) {
     let n = list.length;
     // Max-heapify list
-    for (let i = n / 2 - 1; i >= 0; i--)
+    for (let i = Math.floor(n / 2) - 1; i >= 0; i--)
         yield* heapify(list, n, i);
     // Move max to end of list
     for (let i = n - 1; i >= 0; i--) {
@@ -43,7 +43,7 @@ function* heapify(list, n, i) {
     }
     
     // Swap largest into root
-    if (largest != i) {
+    if (largest !== i) {
         let temp = list[i];
         list[i] = list[largest];
         list[i].recalculate(i);

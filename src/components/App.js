@@ -13,7 +13,7 @@ import '../css/App.css'
 
 class App extends React.Component {
   state = {
-    algorithms: ["Merge Sort", "Insertion Sort", "Selection Sort", "Heap Sort"],
+    algorithms: ["Merge Sort", "Quick Sort", "Insertion Sort", "Selection Sort", "Heap Sort"],
     selectedAlgo: "Merge Sort",
     speed: 100,
     numItems: 100,

@@ -15,3 +15,7 @@ describe('selectionSort', () => {
 describe('heapSort', () => {
     it('should correctly sort ItemLists of size 1 to 100', testSort('Heap Sort'));
 });
+
+// describe('quickSort', () => {
+//     it('should correctly sort ItemLists of size 1 to 100', testSort('Quick Sort'));
+// });
