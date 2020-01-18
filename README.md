@@ -6,6 +6,6 @@ Try it [here.](https://emmadusmani.github.io/sorting-visualizer)
 
 ![screenshot](public/screenshot.png)
 
-Credit to [Rafe Autie](https://github.com/rafeautie), whose [sorting visulizer](https://sort.rafe.dev/) served as an inspiration and reference for this project.
+Credit to [Rafe Autie](https://github.com/rafeautie), whose [sorting visualizer](https://sort.rafe.dev/) served as an inspiration and reference for this project.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
