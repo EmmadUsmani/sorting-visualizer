@@ -12,7 +12,6 @@
     opacity: 0.95;
 }
 
-
 .dropdown {
     margin-top: 5px !important;
     margin-bottom: 15px !important;
@@ -25,4 +24,9 @@
 
 .buttons {
     margin: auto;
+}
+
+.github {
+    position: absolute;
+    right: 10px;
 }

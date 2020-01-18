@@ -9,6 +9,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Slider from '@material-ui/core/Slider';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import '../css/App.css'
 
 class App extends React.Component {
@@ -43,8 +44,13 @@ class App extends React.Component {
     return (
         <>
         <Card raised={true} className="card">
+    
           <CardContent>
-            <Typography>Algorithm</Typography>
+            <Typography>Algorithm
+              <a href="https://github.com/EmmadUsmani/sorting-visualizer">
+                <GitHubIcon className="github" color="action" fontSize="small"></GitHubIcon>
+              </a>
+            </Typography>
             <FormControl className="dropdown" disabled={this.state.isSorting}>
               <Select value={this.state.selectedAlgo} onChange={this.setAlgo}>
                   {this.state.algorithms.map((a) => <MenuItem value={a} key={a}>{a}</MenuItem>)}
